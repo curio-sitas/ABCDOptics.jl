@@ -1,7 +1,10 @@
 name = "ABCDOptics"
 uuid = "210ef64c-ad11-4f70-9aef-6554e157303b"
 authors = ["Brian Sinquin <paradisepx@gmail.com> and contributors"]
-version = "0.1.0"
+version = "0.1.1"
+
+[deps]
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 
 [compat]
 julia = "1"

@@ -1,5 +1,11 @@
+# Dependencies
+using StaticArrays
 module ABCDOptics
 
-# Write your package code here.
+#Exports
+export *, ==, FreeSpace, ThinLens, FlatMirror, FlatInterface, CurvedInterface, CurvedMirror
+
+#Icludes
+include("OpticalElements.jl")
 
 end
