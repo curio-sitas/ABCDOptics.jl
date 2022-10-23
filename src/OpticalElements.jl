@@ -1,5 +1,5 @@
 using StaticArrays
-import Base:*,==
+import Base:*,==,-
 
 # Generic Optical Element
 struct OpticalElement
@@ -8,7 +8,7 @@ end
 
 *(ℇ1::T,ℇ2::T) where {T<:OpticalElement} = OpticalElement(ℇ1.M * ℇ2.M)
 ==(ℇ1::T,ℇ2::T) where {T<:OpticalElement} = isequal(ℇ1.M,ℇ2.M)
-
+-(ℇ::T) where {T<:OpticalElement} = OpticalElement(-ℇ.M)
 # FreeSpace propagation
 FreeSpace(L::Real) = OpticalElement([[1 L]; [0 1]])
 
@@ -20,4 +20,6 @@ CurvedInterface(n1::Real,n2::Real, R::Real) = OpticalElement([[1 0]; [-(n2-n1)/(
 
 FlatMirror() = OpticalElement([[1 0]; [0 1]])
 
-CurvedMirror(R) =  OpticalElement([[1 0]; [-2/R 1]])
+CurvedMirror(R::Real) =  OpticalElement([[1 0]; [-2/R 1]])
+
+ThickLens(R::Real,d::Real,n1::Real,n2::Real) = CurvedInterface(n1,n2, R)*FreeSpace(d)*CurvedInterface(n2,n1, R)

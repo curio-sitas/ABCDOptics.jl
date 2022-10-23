@@ -1,11 +1,16 @@
 # Dependencies
 using StaticArrays
+
 module ABCDOptics
 
 #Exports
-export *, ==, FreeSpace, ThinLens, FlatMirror, FlatInterface, CurvedInterface, CurvedMirror
+export *, ==, FreeSpace, ThinLens, FlatMirror, FlatInterface, CurvedInterface, CurvedMirror, ThickLens
 
-#Icludes
+#Includes
+
 include("OpticalElements.jl")
+include("Beam.jl")
+include("Cavity.jl")
+include("PlotRecipes.jl")
 
 end
